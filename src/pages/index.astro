@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import AboutMe from "../components/AboutMe.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import ProfileCheck from "../components/icons/ProfileCheck.astro";
+import Projects from "../components/Projects.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<Layout title="Porfolio de Naim Moltrasio" description="">
+  <main class="px-4">
+    <SectionContainer class="py-8 md:py-16">
+      <!-- Reduce the padding here -->
+      <Hero />
+    </SectionContainer>
+  </main>
+  <SectionContainer id="proyectos">
+    <!-- Adjust padding here -->
+    <div class="text-center">
+      <h2
+        class="flex justify-center items-center mb-8 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+      >
+        <CodeIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </div>
+  </SectionContainer>
+
+  <SectionContainer id="sobre-mi" class="py-8 md:py-16">
+    <div class="text-center">
+      <h2
+        class="flex justify-center items-center mb-8 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+      >
+        <ProfileCheck class="size-8" />
+        Sobre mí
+      </h2>
+      <AboutMe />
+    </div>
+  </SectionContainer>
+</Layout>

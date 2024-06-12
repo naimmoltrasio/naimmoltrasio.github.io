@@ -1,0 +1,174 @@
+---
+import GitHub from "./icons/GitHub.astro";
+import R from "./icons/R.astro";
+import Google from "./icons/Google.astro";
+import Link from "./icons/Link.astro";
+import Python from "./icons/Python.astro";
+import LinkButton from "./LinkButton.astro";
+import PowerBi from "./icons/PowerBi.astro";
+import Flet from "./icons/Flet.astro";
+import Flask from "./icons/Flask.astro";
+import Html from "./icons/Html.astro";
+
+const TAGS = {
+  RSTUDIO: {
+    name: "RStudio",
+    class: "bg-blue-500 text-white",
+    icon: R,
+  },
+  FLET: {
+    name: "Flet",
+    class: "bg-blue-500 text-white",
+    icon: Flet,
+  },
+  POWERBI: {
+    name: "PowerBi",
+    class: "bg-black text-white",
+    icon: PowerBi,
+  },
+  GOOGLE: {
+    name: "Google Cloud",
+    class: "bg-[#003159] text-white",
+    icon: Google,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-yellow-400 text-black",
+    icon: Python,
+  },
+  FLASK: {
+    name: "Flask",
+    class: "bg-teal-400	 text-black",
+    icon: Flask,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-orange-500	 text-white",
+    icon: Html,
+  },
+};
+const PROJECTS = [
+  {
+    title: "Problema del comerciante",
+    description:
+      "Resolución del problema del comerciante mediante diferentes modelos.",
+    link: "https://svgl.vercel.app/",
+    github: "https://github.com/pheralb/svgl",
+    image: "projects/clothes.jpg",
+    tags: [TAGS.PYTHON],
+  },
+  {
+    title: "Análisis de sentimientos en redes sociales",
+    description: "Análisis de sentimientos en redes sociales. Rstudio",
+    link: "https://adventjs.dev",
+    image: "projects/sentiment.webp",
+    tags: [TAGS.RSTUDIO],
+  },
+  {
+    title: "Clasificacion de Imagenes con Redes Neuronales",
+    description:
+      "Implementación de algoritmo de clasifiación mediante el conjunto de datos MNIST utilizando Redes Neuronales Convolucionales (CNN). Creación de página web interactiva para que el usuario pruebe el clasificador.",
+    github:
+      "https://github.com/naimmoltrasio/Image-Classification-using-Neural-Networks",
+    image: "projects/numbers.jpg",
+    tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.HTML],
+  },
+  {
+    title: "Análisis del mercado de valores en el S&P500.",
+    description:
+      "Análisis de datos del S&P500 y de las 6 empresas con más valor de mercado en los últimos 365 días para identificar tendencias y patrones",
+    link: "https://www.kaggle.com/code/naimmoltrasio/s-p500-index-and-stock-market-analysis",
+    image: "projects/sp500.jpeg",
+    tags: [TAGS.PYTHON],
+  },
+  {
+    title: "Gibbly - Aplicación de comunicación en lenguaje de señas",
+    description:
+      "Desarrollo de una aplicación para facilitar la comunicación entre personas que hablan y no hablan mediante aprendizaje automatizado, APIs de Google Cloud y Flet.",
+    link: "https://adventjs.dev",
+    image: "projects/sign.jpg",
+    tags: [TAGS.PYTHON, TAGS.GOOGLE, TAGS.FLET],
+  },
+  {
+    title: "Videojuego RPG",
+    description: "Videojuego RPG creado mediante C++",
+    link: "https://adventjs.dev",
+    image: "projects/sentiment.webp",
+    tags: [TAGS.RSTUDIO],
+  },
+];
+---
+
+<style>
+  .project-card {
+    @apply p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg transition-transform transform hover:-translate-y-1 hover:shadow-2xl;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-image {
+    @apply w-full h-40 object-cover rounded-t-lg;
+  }
+
+  .project-title {
+    @apply text-2xl font-bold text-gray-800 dark:text-gray-100 mt-4;
+  }
+
+  .project-description {
+    @apply mt-2 text-gray-700 dark:text-gray-400;
+  }
+
+  .project-tags {
+    @apply flex flex-wrap mt-2;
+  }
+
+  .project-content {
+    @apply flex-1;
+  }
+
+  .project-footer {
+    @apply flex items-center gap-x-2 text-sm mt-6;
+  }
+
+  .link-button {
+    @apply text-sm;
+  }
+</style>
+
+<div class="grid gap-8 md:grid-cols-2">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="project-card">
+        <img src={image} alt={title} class="project-image" loading="lazy" />
+        <div class="project-content">
+          <h3 class="project-title">{title}</h3>
+          <div class="project-tags">
+            {tags.map((tag) => (
+              <span
+                class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            ))}
+          </div>
+          <p class="project-description">{description}</p>
+        </div>
+        <footer class="project-footer">
+          {github && (
+            <LinkButton href={github} class="link-button">
+              <GitHub class="size-6" />
+              Code
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link} class="link-button">
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+      </article>
+    ))
+  }
+</div>

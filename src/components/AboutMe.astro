@@ -1,0 +1,28 @@
+---
+const personalImageAlt = "Naim Moltrasio";
+---
+
+<article
+  class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
+>
+  <div class="order-2 md:order-1">
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg max-w-xs">
+      <p>
+        Me llamo Naim Moltrasio pero mis amigos me llaman Moltra. Mi primer
+        proyecto de programación fue una calculadora en la cmd de Windows
+        utilizando C++ en 3ero de la ESO. A día de hoy me encuentro en 3ero de
+        Ingeniería Informática.
+      </p>
+    </div>
+  </div>
+  <div class="order-1 md:order-2">
+    <img
+      width="200"
+      height="200"
+      src="/me.webp"
+      alt={personalImageAlt}
+      class="object-cover w-64 h-full p-1 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+      style="object-position: 50% 50%"
+    />
+  </div>
+</article>
